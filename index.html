@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Reanka</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#000;
+    overflow:hidden;
+    font-family:'Poppins', sans-serif;
+    color:white;
+    position:relative;
+}
+
+/* Background */
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200')
+    center/cover;
+    z-index:-2;
+}
+
+/* Glow */
+body::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top right,
+    rgba(80,80,255,.2),
+    transparent 30%);
+    z-index:-1;
+}
+
+/* Box */
+.container{
+    width:90%;
+    max-width:500px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(255,255,255,.1);
+}
+
+/* Title */
+h1{
+    font-family:'Cormorant Garamond', serif;
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+p{
+    line-height:1.9;
+    color:#eee;
+}
+
+/* Input */
+input{
+    width:100%;
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    margin-top:15px;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    font-size:16px;
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    background:rgba(255,255,255,0.15);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:rgba(255,255,255,0.25);
+}
+
+#content,
+#lastMessage{
+    display:none;
+    text-align:left;
+    max-height:70vh;
+    overflow:auto;
+}
+
+.center{
+    text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LOGIN -->
+    <div id="login">
+        <h1>Untuk Rere</h1>
+        <p>Masukkan key untuk membuka pesan</p>
+
+        <input type="password"
+        id="key"
+        placeholder="Masukkan Key">
+
+        <button onclick="bukaPesan()">
+            Buka Pesan
+        </button>
+
+        <p id="error"></p>
+    </div>
+
+    <!-- PESAN -->
+    <div id="content">
+        <h1 class="center">Untuk Rere</h1>
+
+        <p>
+        Hai Rere, tidak terasa ya waktu berjalan begitu cepat.
+        Rasanya baru kemarin kita menjalani hari-hari sekolah,
+        bercanda, tertawa, dan menjalani banyak cerita sederhana.
+        <br><br>
+
+        Sekarang kita sudah ada di titik perpisahan.
+        Sebentar lagi kita akan lulus,
+        dan mungkin semuanya tidak akan sama lagi.
+        Tidak ada lagi suasana kelas seperti biasanya,
+        candaan kecil, atau momen sederhana yang dulu terasa biasa.
+        <br><br>
+
+        Terima kasih karena sudah menjadi bagian
+        dari cerita masa sekolah ini.
+        Entah kamu sadar atau tidak,
+        banyak hal sederhana yang akan tetap dikenang.
+        <br><br>
+
+        Aku cuma ingin bilang,
+        semoga semua cita-cita kamu tercapai,
+        semoga hidupmu selalu dipenuhi kebahagiaan,
+        dan semoga kamu selalu menemukan hal baik
+        di mana pun nanti berada.
+        <br><br>
+
+        Kalau suatu saat nanti kita bertemu lagi,
+        semoga kita masih bisa tersenyum
+        sambil mengingat masa sekolah ini.
+        </p>
+
+        <button onclick="lanjutPesan()">
+            Lanjut
+        </button>
+    </div>
+
+    <!-- PESAN AKHIR -->
+    <div id="lastMessage">
+        <h1 class="center">Pesan Terakhir</h1>
+
+        <p class="center">
+        Jangan pernah lupain semua kenangan ini ya, Reanka.<br><br>
+
+        Kita mungkin akan berjalan ke arah berbeda,<br>
+        tapi semoga suatu hari nanti,<br>
+        kita masih bisa mengingat cerita sederhana<br>
+        dari masa sekolah ini 💙
+        </p>
+    </div>
+
+</div>
+
+<script>
+function bukaPesan() {
+    let input = document.getElementById("key").value;
+
+    if(input === "Reanka"){
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    } else {
+        document.getElementById("error").innerHTML =
+        "Key Salah!";
+    }
+}
+
+function lanjutPesan() {
+    document.getElementById("content").style.display = "none";
+    document.getElementById("lastMessage").style.display = "block";
+}
+</script>
+
+</body>
+  </html>
